@@ -1,7 +1,7 @@
 import java.util.HashSet;
 import java.util.Set;
 
-public class lengthOfLongestSubstring_3 {
+public class _3_lengthOfLongestSubstring {
     private static int lengthOfLongestSubstring(String s) {
         int n = s.length();
         Set<Character> occ = new HashSet<Character>();
