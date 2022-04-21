@@ -34,14 +34,16 @@ public class _21_mergeTwoLists {
     }
 
     public static void printList(ListNode list1){
+        if(list1==null) return;
         while(list1.next != null){
             System.out.printf("%d->" , list1.val);
             list1 = list1.next;
         }
         System.out.printf("%d\n" , list1.val);
     }
-
     public static ListNode buildList(int [] arr){
+        if(arr.length==0)
+            return null;
         ListNode res = new ListNode(arr[0]);
         ListNode p = res;
         for(int i=1;i<arr.length;i++){
