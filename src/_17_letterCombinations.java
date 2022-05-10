@@ -19,11 +19,11 @@ public class _17_letterCombinations {
         table.put('7',"pqrs");
         table.put('8',"tuv");
         table.put('9',"wxyz");
-        backStracking(digits,0);
+        backTracking(digits,0);
         return ans;
     }
 
-    public void backStracking(String str,int index){
+    public void backTracking(String str,int index){
         if(index==str.length()){
             ans.add(sb.toString());
             return;
@@ -33,7 +33,7 @@ public class _17_letterCombinations {
         int num=c=='7'||c=='9'?4:3;
         for(int i=0;i<num;++i){
             sb.append(tbString.charAt(i));
-            backStracking(str,index+1);
+            backTracking(str,index+1);
             sb.deleteCharAt(sb.length()-1);
         }
     }
