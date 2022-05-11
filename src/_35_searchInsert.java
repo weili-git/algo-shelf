@@ -20,7 +20,7 @@ public class _35_searchInsert {
                 return middle;
             }
         }
-        return left;    // right + 1?
+        return left;    // right + 1? 精髓
     }
 
     public static void main(String[] args) {    // binary search
