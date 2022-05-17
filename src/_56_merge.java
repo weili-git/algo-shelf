@@ -18,7 +18,7 @@ public class _56_merge {
         while(i<n){
             int left = intervals[i][0];
             int right = intervals[i][1];
-            while(i<n-1&&right>=intervals[i][0]){
+            while(i<n-1&&right>=intervals[i+1][0]){
                 right = Math.max(right, intervals[i+1][1]);
                 i++;
             }
