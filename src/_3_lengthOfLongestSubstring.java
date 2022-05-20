@@ -37,7 +37,7 @@ public class _3_lengthOfLongestSubstring {
                 right++;
             }
             max = Math.max(max, right - left);
-            if(right>=n){
+            if(right>=n){   //  不能让right=n的时候走到下面的循环，会数组越界
                 break;
             }
             while(s.charAt(left)!=s.charAt(right)){

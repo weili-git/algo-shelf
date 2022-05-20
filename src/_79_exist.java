@@ -40,6 +40,8 @@ class Solution {    // 阿里
         backtracking(i, j+1, board, word, visited, pos+1);
         backtracking(i, j-1, board, word, visited, pos+1);
         visited[i][j] = false; // 撤销修改
+
+
     }
 
 }
