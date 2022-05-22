@@ -1,16 +1,13 @@
 public class _206_reverseList {
     public ListNode reverseList(ListNode head) {
-        if(head==null) return null;
-        ListNode prev = null;
-        while(head.next!=null){
+        if(head==null||head.next==null) return head;
+        ListNode pre = null;
+        while(head!=null){
             ListNode tmp = head.next;
-
-            head.next = prev;
-            prev = head;
-
-            head = tmp;     // the next node
+            head.next = pre;
+            pre = head;
+            head = tmp;
         }
-        head.next = prev;
-        return head;
+        return pre;
     }
 }
