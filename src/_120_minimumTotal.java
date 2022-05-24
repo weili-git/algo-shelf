@@ -4,25 +4,14 @@ import java.util.List;
 
 public class _120_minimumTotal {
     public int minimumTotal(List<List<Integer>> triangle) {
-        int n = triangle.size();
-        if(n==1) return triangle.get(0).get(0);
-        int[][] dp = new int[n][n];
-        for(int i=0;i<n;i++){
-            Arrays.fill(dp[i], Integer.MAX_VALUE);
-        }
-        dp[0][0] = triangle.get(0).get(0);
-        for(int i=1;i<triangle.size();i++){
-            for(int j=0;j<=i;j++){
-                dp[i][j] = Math.min(triangle.get(i-1).get(j), dp[i][j]);
-                if(j>0) dp[i][j] = Math.max(triangle.get(i-1).get(j-1), dp[i][j]);
+        if(triangle==null || triangle.size()==0) return 0;
+        int[][] dp = new int[triangle.size()+1][triangle.size()+1];
+        for(int i=triangle.size()-1;i>=0;i--){
+            List<Integer> curTr = triangle.get(i);
+            for(int j=0;j<curTr.size();j++){
+                dp[i][j] = Math.min(dp[i+1][j], dp[i+1][j+1]) + curTr.get(j);
             }
         }
-        int min = Integer.MAX_VALUE;
-        for(int i=0;i<n;i++){
-            min = Math.min(dp[n-1][i], min);
-        }
-        return min;
-
-        // in progress
+        return dp[0][0];
     }
 }
