@@ -12,5 +12,6 @@ public class _448_findDisappearedNumbers {
             if(visit[i]==0) res.add(i);
         }
         return res;
+        //将所有正数作为数组下标，置对应数组值为负值。那么，仍为正数的位置即为（未出现过）消失的数字。
     }
 }
