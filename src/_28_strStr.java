@@ -1,7 +1,4 @@
 public class _28_strStr {
-    // 1. pi(i) <= pi(i-1) + 1
-    // Each time, pi(i) increase at most 1. For example, aab...aab => aabc...aabd
-    // 2. if s[i] = s[pi(i-1)], then pi(i) = pi(i-1) + 1    ...
     public static int strStr(String haystack, String needle) {
         // 字符串匹配算法KMP
         int n = haystack.length();
@@ -9,19 +6,24 @@ public class _28_strStr {
         if(m==0){
             return 0;
         }
-        int [] pi = new int[m];
-        for(int i=1,j=0;j<m;i++){   // KMP
+        int [] next = new int[m];   // next[]的值代表字符串前缀和后缀相同的最大长度（不包括自身）
+        // a a b a a c b b
+        // 0 1 0 1 2 0 0 0
+        for(int i=1,j=0;j<m;i++){
             while(j>0 && needle.charAt(i) != needle.charAt(j)){
-                j = pi[j-1];
+                j = next[j-1];
             }
             if(needle.charAt(i)==needle.charAt(j)){
                 j++;
             }
-            pi[i]=j;
+            next[i]=j;
         }
+        // a a b a a b a a c b b
+        // a a b a a c  [j=5]
+        //       a a b  [j=2]
         for (int i = 0, j = 0; i < n; i++) {
             while (j > 0 && haystack.charAt(i) != needle.charAt(j)) {
-                j = pi[j - 1];
+                j = next[j - 1];
             }
             if (haystack.charAt(i) == needle.charAt(j)) {
                 j++;
