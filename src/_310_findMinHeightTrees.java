@@ -10,8 +10,8 @@ public class _310_findMinHeightTrees {
             res.add(0);
             return res;
         }
-        int[] degree = new int[n]; //out-degree
-        List<List<Integer>> map = new ArrayList<>();
+        int[] degree = new int[n]; // out-degree
+        List<List<Integer>> map = new ArrayList<>(); // adjacency list
         for(int i=0;i<n;i++){
             map.add(new ArrayList<>());
         }
